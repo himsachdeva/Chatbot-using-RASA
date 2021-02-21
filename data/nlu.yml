@@ -1,0 +1,16 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - good morning
+- intent: restaurant_search
+  examples: |
+    - hungry
+    - [delhi]{"entity": "location", "value": " Delhi"}
+    - [North Indian](cuisine)
+    - [More than 700](price)
+    - restrau in [italy](location)
+- intent: email
+  examples: |
+    - [dhanwantichoudhary@gmail.com](emailid)
