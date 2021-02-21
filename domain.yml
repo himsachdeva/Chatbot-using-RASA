@@ -1,0 +1,132 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- restaurant_search
+- greet
+- email
+- affirm
+- deny
+- goodbye
+- thankyou
+entities:
+- cuisine
+- emailid
+- location
+- price
+- sendmail
+slots:
+  location:
+    type: text
+    influence_conversation: true
+  cuisine:
+    type: text
+    influence_conversation: true
+  price:
+    type: text
+    influence_conversation: true
+  emailid:
+    type: text
+    influence_conversation: true
+  loc_avl:
+    type: categorical
+    influence_conversation: true
+    values:
+    - '1'
+    - '0'
+  csn_avl:
+    type: categorical
+    influence_conversation: true
+    values:
+    - '1'
+    - '0'
+  prc_avl:
+    type: categorical
+    influence_conversation: true
+    values:
+    - '1'
+    - '0'
+  email_avl:
+    type: categorical
+    influence_conversation: true
+    values:
+      - '1'
+      - '0'
+  sendmail:
+    type: text
+    influence_conversation: true
+responses:
+  utter_ask_cuisine:
+  - buttons:
+    - payload: American
+      title: American
+    - payload: Chinese
+      title: Chinese
+    - payload: Italian
+      title: Italian
+    - payload: Mexican
+      title: Mexican
+    - payload: North Indian
+      title: North Indian
+    - payload: South Indian
+      title: South Indian
+    text: what kind of cuisine would you like?
+  utter_ask_howcanhelp:
+  - text: how can I help you?
+  utter_ask_location:
+  - text: In what location?
+  utter_ask_budget:
+  - buttons:
+    - payload: Less than 300
+      title: Less than Rs.300
+    - payload: 300 to 700
+      title: Between Rs.300 and 700
+    - payload: More than 700
+      title: More than Rs.700
+    text: What price range are you looking at?
+  utter_get_email:
+  - text: Please provide your email id
+  utter_ask_sendmail:
+  - text: Do You need details of the top 10 restaurants on email? (y/n)
+  utter_sent_email:
+  - text: We have emailed you the list of top 10 restaurants.
+  - text: Please check your mailbox, your list of restaurants is ready to view.
+  utter_restart:
+  - text: Please visit us again :)
+  utter_default:
+  - text: i cannot understand, please repeat!!!
+  utter_goodbye:
+  - text: goodbye :(
+  - text: Bye-bye
+  - text: see you
+  utter_greet:
+  - text: Hey there! How may I help you?
+  - text: Hi, How can I help you?
+  - text: Hey, How is it going? How may I help you today?
+  - text: Hello, good to see you!
+  - text: Hi, How are you doing today?
+  - text: Hey, How can I help?
+  utter_do_not_operate:
+  - text: We do not operate in this area yet. Please specify some other location.
+actions:
+- action_get_mail
+- action_search_restaurants
+- action_send_mail
+- action_slot_reset
+- action_validate_cuisine
+- action_validate_location
+- action_validate_price
+- utter_ask_budget
+- utter_ask_cuisine
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_sendmail
+- utter_default
+- utter_do_not_operate
+- utter_get_email
+- utter_goodbye
+- utter_greet
+- utter_restart
+- utter_sent_email
+- action_validate_emailid
