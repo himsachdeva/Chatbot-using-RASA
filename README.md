@@ -39,4 +39,4 @@ Finally, the bot should ask the user whether he/she wants the details of the top
 Restaurant Name
 Restaurant locality address
 Average budget for two people
-Zomato user rating
+Zomato user rating 
